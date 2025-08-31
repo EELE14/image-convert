@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ImageFlow - Image Converter</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="theme-toggle">
+      <button id="themeToggle" class="theme-btn">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+
+    <div class="container">
+      <div class="header">
+        <div class="logo">ImageConv</div>
+        <div class="subtitle">
+          Easy to use, powerful image converter, supporting multiple image
+          formats
+        </div>
+      </div>
+
+      <div class="main-card">
+        <div class="upload-zone" id="uploadZone">
+          <div class="upload-icon">
+            <i class="fas fa-cloud-upload-alt"></i>
+          </div>
+          <div class="upload-text">Drop files here or click to browse</div>
+          <div class="upload-subtext">
+            Supports: JPG, PNG, WEBP, GIF, BMP | Single files or folders
+          </div>
+          <input
+            type="file"
+            id="fileInput"
+            multiple
+            accept="image/*"
+            style="display: none"
+          />
+        </div>
+
+        <div class="format-selector">
+          <button class="format-option active" data-format="jpeg">JPEG</button>
+          <button class="format-option" data-format="png">PNG</button>
+          <button class="format-option" data-format="webp">WebP</button>
+          <button class="format-option" data-format="gif">GIF</button>
+        </div>
+
+        <div class="quality-slider">
+          <label for="qualitySlider"
+            >Quality: <span id="qualityValue">80</span>%</label
+          >
+          <div class="slider-container">
+            <input
+              type="range"
+              id="qualitySlider"
+              class="slider"
+              min="10"
+              max="100"
+              value="80"
+            />
+          </div>
+        </div>
+
+        <button class="convert-button" id="convertButton" disabled>
+          <i class="fas fa-magic"></i>
+          Start Conversion
+        </button>
+
+        <div class="progress-bar hidden" id="progressBar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="file-list" id="fileList"></div>
+
+        <div class="download-section hidden" id="downloadSection">
+          <button class="download-button" id="downloadAllButton">
+            <i class="fas fa-download"></i>
+            Download All
+          </button>
+          <button class="download-button" id="downloadZipButton">
+            <i class="fas fa-file-archive"></i>
+            Download as ZIP
+          </button>
+        </div>
+      </div>
+
+      <div class="statistics hidden" id="statistics">
+        <h3><i class="fas fa-chart-bar"></i> Conversion Statistics</h3>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-images"></i>
+            </div>
+            <div class="stat-value" id="totalFiles">0</div>
+            <div class="stat-label">Files Processed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-compress-arrows-alt"></i>
+            </div>
+            <div class="stat-value" id="totalSizeReduction">0%</div>
+            <div class="stat-label">Size Reduction</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-weight-hanging"></i>
+            </div>
+            <div class="stat-value" id="originalSize">0 MB</div>
+            <div class="stat-label">Original Size</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-feather-alt"></i>
+            </div>
+            <div class="stat-value" id="compressedSize">0 MB</div>
+            <div class="stat-label">New Size</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="stat-value" id="processingTime">0s</div>
+            <div class="stat-label">Processing Time</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-percentage"></i>
+            </div>
+            <div class="stat-value" id="averageReduction">0%</div>
+            <div class="stat-label">Avg Reduction/File</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
